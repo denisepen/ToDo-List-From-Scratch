@@ -17,7 +17,7 @@ function addListItem (event) {
   if (inputValue.length > 0 && (workRadio.checked || homeRadio.checked) ) {
     console.log(inputValue);
 
-    let listElement = document.getElementById("list")
+    let homeListElement = document.getElementById("homeList")
 
 
     let newListItem = document.createElement("li");
@@ -60,12 +60,12 @@ function addListItem (event) {
     if(newListItem.className === 'work') {
       workList.appendChild(newListItem)
     } else {
-      listElement.appendChild(newListItem);
+      homeListElement.appendChild(newListItem);
     }
 
     event.target[0].value = "";
-    document.getElementById('home').checked = false
-    document.getElementById('work').checked = false
+    document.getElementById('home').checked = false;
+    document.getElementById('work').checked = false;
 
     // let list = "";
   } else {
