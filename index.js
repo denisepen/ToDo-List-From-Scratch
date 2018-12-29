@@ -5,7 +5,7 @@ listForm.addEventListener("submit", addListItem);
 
 function addListItem (event) {
   event.preventDefault();
- console.log(event)
+ // console.log(event)
 
 
 
@@ -15,13 +15,15 @@ function addListItem (event) {
   let homeRadio = document.getElementById('home');
 
   if (inputValue.length > 0 && (workRadio.checked || homeRadio.checked) ) {
-    console.log(inputValue);
+    newInput = inputValue.replace(inputValue[0], inputValue[0].toUpperCase())
+    console.log(newInput);
 
     let homeListElement = document.getElementById("homeList")
 
 
     let newListItem = document.createElement("li");
-    newListItem.innerHTML = inputValue;
+    newListItem.innerHTML = newInput;
+    newListItem.style.listStyleType = "none";
     newListItem.addEventListener("click", toggleComplete);
 
     function toggleComplete(){
@@ -47,10 +49,10 @@ function addListItem (event) {
     let classAttr = ""
     if (workRadio.checked) {
        classAttr = "work"
-       console.log("work")
+       // console.log("work")
     } else {
        classAttr = "home"
-       console.log("home")
+       // console.log("home")
     }
 
     newListItem.setAttribute("class", classAttr)
